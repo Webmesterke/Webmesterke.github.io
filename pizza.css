@@ -1,0 +1,65 @@
+@media screen and (max-width: 900px) {
+    .img-hidden {
+        display: none;
+    }
+    .fejlec-display {
+        display: none;
+    }
+    .fejlec-hidden {
+        display: block;
+    }
+}
+
+@font-face {
+    font-family: dancefonts;
+    src: url(font/DancingScript-Bold.ttf);
+}
+
+.fejlec-nev {
+    font-family: dancefonts;
+    font-size: 6em;
+}
+
+.fejlec-nev2 {
+    font-size: 1.2em;
+    letter-spacing: 1em;
+}
+
+.fejlec-hidden {
+    display: none;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
+    color: white;
+}
+
+div a:hover,
+div .active-link h3:hover {
+    color: orange;
+    text-decoration: none;
+}
+
+div .active-link h3 {
+    color: yellow;
+}
+
+.bg-hs {
+    background-color: papayawhip;
+    border: 2px solid white;
+}
+
+img {
+    width: 150px;
+}
+
+.img-sh {
+    box-shadow: 5px 5px 5px grey;
+}
+
+table {
+    font-size: 1em;
+}
