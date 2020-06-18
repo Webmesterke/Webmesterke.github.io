@@ -1,4 +1,4 @@
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 850px) {
     .img-hidden {
         display: none;
     }
@@ -13,6 +13,10 @@
 @font-face {
     font-family: dancefonts;
     src: url(font/DancingScript-Bold.ttf);
+}
+
+body {
+    overflow-y: scroll;
 }
 
 .fejlec-nev {
@@ -62,4 +66,8 @@ img {
 
 table {
     font-size: 1em;
+}
+
+form-control:focus {
+    border: 3px solid green;
 }
