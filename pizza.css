@@ -8,6 +8,37 @@
     .fejlec-hidden {
         display: block;
     }
+    .bal {
+        float: left;
+        padding: 0 0 1em 3em;
+    }
+    .jobb {
+        float: right;
+        padding: 1.5em 3em 0 0;
+    }
+    .card-body {
+        height: 8em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .img-hidden {
+        display: none;
+    }
+    .fejlec-display {
+        display: none;
+    }
+    .fejlec-hidden {
+        display: block;
+    }
+    .bal {
+        float: left;
+        padding: 0;
+    }
+    .jobb {
+        float: right;
+        padding: 0;
+    }
 }
 
 @font-face {
@@ -60,14 +91,78 @@ img {
     width: 150px;
 }
 
+.cm42 {
+    width: 250px;
+}
+
+.cm32 {
+    width: 200px;
+}
+
+.rotate1 {
+    animation: rotation 12s infinite linear;
+}
+
+.rotate2 {
+    animation: rotation 8s infinite linear;
+}
+
+.rotate3 {
+    animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
 .img-sh {
     box-shadow: 5px 5px 5px grey;
+}
+
+.img-sha {
+    -webkit-box-shadow: 0px 0px 30px 2px rgba(250, 8, 8, 1);
+    -moz-box-shadow: 0px 0px 30px 2px rgba(250, 8, 8, 1);
+    box-shadow: 0px 0px 30px 2px rgba(250, 8, 8, 1);
 }
 
 table {
     font-size: 1em;
 }
 
-form-control:focus {
-    border: 3px solid green;
+.form-control:focus {
+    border: 2px solid green;
+    box-shadow: none;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+p span {
+    color: orangered;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.card-body {
+    height: 7em;
+    overflow: hidden;
+}
+
+.card-body:hover {
+    position: relative;
+    overflow: visible;
+}
+
+.sm-cim {
+    height: 4em;
+}
+
+.jobb {
+    padding-top: 1em;
 }
