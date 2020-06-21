@@ -1,4 +1,67 @@
 function calc() {
+    let pizzaTipusok = [
+        "paradicsomos", "tejfolos", "chilis",
+        "california", "capri", "digomix",
+        "botticelli", "gusto", "stefano",
+        "etna", "maffia"
+    ];
+    let pizzaArak22 = [
+        1500, 1700, 1900,
+        2000, 2200, 2400,
+        2200, 2400, 2600,
+        2300, 2500
+    ];
+    let pizzaArak32 = [
+        2000, 2200, 2400,
+        2500, 2700, 2900,
+        2700, 2900, 3100,
+        2800, 3000
+    ];
+    let pizzaArak42 = [
+        2500, 2700, 2900,
+        3000, 3200, 3400,
+        3200, 3400, 3600,
+        3300, 3500
+    ];
+
+    let pizzaSelect = document.querySelector("#pizza");
+    let pizzaNev = pizzaSelect.options[pizzaSelect.selectedIndex].value;
+    let pizzaAr = document.querySelector(".pizza-osszeg");
+    let pizzaMeret = parseInt(document.querySelector('input[name="pizzameret"]:checked').value);
+    let pizzaDb = parseInt(document.querySelector("form#rendeles input[name=pizza-db]").value);
+    let pizzaOsszeg = 0;
+
+    if (pizzaMeret == 22) {
+        for (let i = 0; i < pizzaTipusok.length; i++) {
+            if (pizzaNev == pizzaTipusok[i]) {
+                pizzaOsszeg = pizzaAr.innerHTML = pizzaArak22[i] * pizzaDb;
+                break;
+            }
+        }
+    } else if (pizzaMeret == 32) {
+        for (let i = 0; i < pizzaTipusok.length; i++) {
+            if (pizzaNev == pizzaTipusok[i]) {
+                pizzaOsszeg = pizzaAr.innerHTML = pizzaArak32[i] * pizzaDb;
+                break;
+            }
+        }
+    } else if (pizzaMeret == 42) {
+        for (let i = 0; i < pizzaTipusok.length; i++) {
+            if (pizzaNev == pizzaTipusok[i]) {
+                pizzaOsszeg = pizzaAr.innerHTML = pizzaArak42[i] * pizzaDb;
+                break;
+            }
+        }
+    }
+    /*fizetendo = pizzaosszeg + pepsiosszeg + fantaosszeg + liptonosszeg;*/
+
+    let osszeg = document.querySelector("strong");
+
+    osszeg.innerHTML = pizzaOsszeg.toLocaleString('hu-HU');
+
+}
+/*
+function calc() {
 
     const california = 120;
     const capri = 130;
@@ -73,4 +136,4 @@ function calc() {
 
     osszeg.innerHTML = fizetendo.toLocaleString('hu-HU');
 
-}
+}*/

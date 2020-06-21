@@ -40,7 +40,7 @@
         <!--MENÜ-->
         <div class="container-sm">
             <div class="row text-white text-center">
-                <div class="bg-danger p-1 m-1 col-sm active-link">
+                <div class="bg-danger p-1 m-1 col-sm">
                     <a href="index.html">
                         <h3> <i class='fas fa-pizza-slice' aria-hidden="true"></i> Termékeink</h3>
                     </a>
@@ -50,7 +50,7 @@
                         <h3><i class="fa fa-tag" aria-hidden="true"></i> Akciók</h3>
                     </a>
                 </div>
-                <div class="bg-danger p-1 m-1 col-sm">
+                <div class="bg-danger p-1 m-1 col-sm active-link">
                     <a href="rendeles.html">
                         <h3><i class="fa fa-wpforms" aria-hidden="true"></i> Rendelés</h3>
                     </a>
@@ -84,17 +84,22 @@
                                         <select class="form-control" id="pizza">
                                             <option selected="selected"
                                                 disabled>Válassz egy pizzatípust!</option>
-                                            <optgroup label="Paradicsomos">
+                                            <optgroup label="Pizza alapok">
+                                                <option value="paradicsomos">Paradicsomos</option>
+                                                <option value="tejfolos">Tejfölös</option>
+                                                <option value="chilis">Chilis</option>
+                                            </optgroup>
+                                            <optgroup label="Feltétek paradicsomos alaphoz">
                                                 <option value="california">California</option>
                                                 <option value="capri">Capri</option>
                                                 <option value="digomix">Digo-Mix</option>
                                             </optgroup>
-                                            <optgroup label="Tejfölös">
+                                            <optgroup label="Feltétek tejfölös alaphoz">
                                                 <option value="botticelli">Botticelli</option>
                                                 <option value="gusto">Gusto</option>
                                                 <option value="stefano">Stefano</option>
                                             </optgroup>
-                                            <optgroup label="Chilis">
+                                            <optgroup label="Feltétek chilis alaphoz">
                                                 <option value="etna">Etna</option>
                                                 <option value="maffia">Maffia</option>
                                             </optgroup>
@@ -119,6 +124,10 @@
                                                 db, maximum 10 db.</small>
                                     </div>
                                 </div>
+                                <div>
+                                    Részösszeg: <span class="pizza-osszeg">0</span> Ft
+                                </div>
+
                             </div>
                             <hr>
                             <div class="form-group">
