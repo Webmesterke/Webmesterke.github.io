@@ -1,3 +1,5 @@
+document.querySelector("#pizza").addEventListener("change", calc);
+
 function calc() {
     let pizzaTipusok = [
         "paradicsomos", "tejfolos", "chilis",
