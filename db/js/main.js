@@ -174,7 +174,8 @@ function setRow(btn) {
         },
         body: JSON.stringify(data)
     };
-    fetch(`http://localhost:3000/users/${id}`, fetchInit).then(
+    //fetch(`http://localhost:3000/users/${id}`, fetchInit).then(
+    fetch(`https://webmesterke.github.io/users`, fetchInit).then(
         resp => resp.json(),
         err => console.error(err)
     ).then(
