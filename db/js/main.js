@@ -14,7 +14,8 @@ function getServerData(url) {
 }
 
 function startGetUsers() {
-    getServerData("http://localhost:3000/users").then(
+    //getServerData("http://localhost:3000/users").then(
+    getServerData("https://webmesterke.github.io/users").then(
         data => fillDataTable(data, "userTable")
     );
 }
@@ -89,7 +90,8 @@ function delRow(btn) {
         cache: "no-cache"
     };
 
-    fetch(`http://localhost:3000/users/${id}`, fetchInit).then(
+    //fetch(`http://localhost:3000/users/${id}`, fetchInit).then(
+    fetch(`https://webmesterke.github.io/users`, fetchInit).then(
         resp => resp.json(),
         err => console.error(err)
     ).then(
@@ -108,11 +110,11 @@ function newUserRow(row) {
             class: "form-control",
             name: k
         });
-            if (k == "id") {
-                td.appendChild(div);
-            } else {
-                td.appendChild(input);
-            }
+        if (k == "id") {
+            td.appendChild(div);
+        } else {
+            td.appendChild(input);
+        }
         tr.appendChild(td);
     }
     let newBtn = createAnyElement("button", {
@@ -139,7 +141,8 @@ function createUser(btn) {
         },
         body: JSON.stringify(data)
     };
-    fetch(`http://localhost:3000/users`, fetchInit).then(
+    //fetch(`http://localhost:3000/users`, fetchInit).then(
+    fetch(`https://webmesterke.github.io/users`, fetchInit).then(
         resp => resp.json(),
         err => console.error(err)
     ).then(
