@@ -103,6 +103,11 @@ img {
     width: 150px;
 }
 
+.ital-h {
+    height: 200px;
+    width: auto;
+}
+
 .rotate1 {
     animation: rotation 12s infinite linear;
 }
