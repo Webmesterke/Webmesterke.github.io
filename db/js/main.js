@@ -14,8 +14,7 @@ function getServerData(url) {
 }
 
 function startGetUsers() {
-    //getServerData("http://localhost:3000/users").then(
-    getServerData("https://webmesterke.github.io/users").then(
+    getServerData("http://localhost:3000/users").then(
         data => fillDataTable(data, "userTable")
     );
 }
@@ -90,8 +89,7 @@ function delRow(btn) {
         cache: "no-cache"
     };
 
-    //fetch(`http://localhost:3000/users/${id}`, fetchInit).then(
-    fetch(`https://webmesterke.github.io/users`, fetchInit).then(
+    fetch(`http://localhost:3000/users/${id}`, fetchInit).then(
         resp => resp.json(),
         err => console.error(err)
     ).then(
@@ -141,8 +139,7 @@ function createUser(btn) {
         },
         body: JSON.stringify(data)
     };
-    //fetch(`http://localhost:3000/users`, fetchInit).then(
-    fetch(`https://webmesterke.github.io/users`, fetchInit).then(
+    fetch(`http://localhost:3000/users`, fetchInit).then(
         resp => resp.json(),
         err => console.error(err)
     ).then(
@@ -174,8 +171,7 @@ function setRow(btn) {
         },
         body: JSON.stringify(data)
     };
-    //fetch(`http://localhost:3000/users/${id}`, fetchInit).then(
-    fetch(`https://webmesterke.github.io/users`, fetchInit).then(
+    fetch(`http://localhost:3000/users/${id}`, fetchInit).then(
         resp => resp.json(),
         err => console.error(err)
     ).then(
