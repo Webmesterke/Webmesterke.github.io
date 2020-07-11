@@ -1,5 +1,8 @@
 document.querySelector("#pizza").addEventListener("change", calc);
 
+let osszeg = document.querySelector("strong");
+
+//Pizza összeg:
 function calc() {
     let pizzaTipusok = [
         "paradicsomos", "tejfolos", "chilis",
@@ -33,53 +36,39 @@ function calc() {
     let pizzaDb = parseInt(document.querySelector("form#rendeles input[name=pizza-db]").value);
     let pizzaOsszeg = 0;
 
-    if (pizzaMeret == 22) {
-        for (let i = 0; i < pizzaTipusok.length; i++) {
-            if (pizzaNev == pizzaTipusok[i]) {
-                pizzaOsszeg = pizzaAr.innerHTML = pizzaArak22[i] * pizzaDb;
-                break;
+    if (document.querySelector('#pizza').value != "choose") {
+        document.querySelector("#calc-btn").style.display = "none";
+        if (pizzaMeret == 22) {
+            for (let i = 0; i < pizzaTipusok.length; i++) {
+                if (pizzaNev == pizzaTipusok[i]) {
+                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak22[i] * pizzaDb;
+                    break;
+                }
+            }
+        } else if (pizzaMeret == 32) {
+            for (let i = 0; i < pizzaTipusok.length; i++) {
+                if (pizzaNev == pizzaTipusok[i]) {
+                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak32[i] * pizzaDb;
+                    break;
+                }
+            }
+        } else if (pizzaMeret == 42) {
+            for (let i = 0; i < pizzaTipusok.length; i++) {
+                if (pizzaNev == pizzaTipusok[i]) {
+                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak42[i] * pizzaDb;
+                    break;
+                }
             }
         }
-    } else if (pizzaMeret == 32) {
-        for (let i = 0; i < pizzaTipusok.length; i++) {
-            if (pizzaNev == pizzaTipusok[i]) {
-                pizzaOsszeg = pizzaAr.innerHTML = pizzaArak32[i] * pizzaDb;
-                break;
-            }
-        }
-    } else if (pizzaMeret == 42) {
-        for (let i = 0; i < pizzaTipusok.length; i++) {
-            if (pizzaNev == pizzaTipusok[i]) {
-                pizzaOsszeg = pizzaAr.innerHTML = pizzaArak42[i] * pizzaDb;
-                break;
-            }
-        }
+    } else {
+        alert("Válassz egy pizzát!");
     }
-    /*fizetendo = pizzaosszeg + pepsiosszeg + fantaosszeg + liptonosszeg;*/
 
-    let osszeg = document.querySelector("strong");
+    let osszegPizza = document.querySelector(".pizza-osszeg");
 
-    osszeg.innerHTML = pizzaOsszeg.toLocaleString('hu-HU');
+    osszegPizza.innerHTML = pizzaOsszeg.toLocaleString('hu-HU');
 
-}
-/*
-function calc() {
-
-    const california = 120;
-    const capri = 130;
-    const digomix = 140;
-    const botticelli = 130;
-    const gusto = 140;
-    const stefano = 150;
-    const etna = 160;
-    const maffia = 170;
-
-
-    let pizzaselect = document.querySelector("#pizza");
-    let pizza = pizzaselect.options[pizzaselect.selectedIndex].value;
-    let pizzameret = parseInt(document.querySelector('input[name="pizzameret"]:checked').value);
-    let pizzadb = parseInt(document.querySelector("form#rendeles input[name=pizza-db]").value);
-
+    //Ital összeg:
     const pepsi = 800;
     const fanta = 600;
     const lipton = 400;
@@ -88,33 +77,12 @@ function calc() {
     let fantadb = parseInt(document.querySelector("form#rendeles input[name=fanta-db]").value);
     let liptondb = parseInt(document.querySelector("form#rendeles input[name=lipton-db]").value);
 
-    let osszeg = document.querySelector("strong");
-
     let pepsiosszeg;
     let fantaosszeg;
     let liptonosszeg;
-    let pizzaosszeg;
-    let fizetendo;
 
-    if (pizza == "california") {
-        pizzaosszeg = california * pizzameret * pizzadb;
-    } else if (pizza == "capri") {
-        pizzaosszeg = capri * pizzameret * pizzadb;
-    } else if (pizza == "digomix") {
-        pizzaosszeg = digomix * pizzameret * pizzadb;
-    } else if (pizza == "botticelli") {
-        pizzaosszeg = botticelli * pizzameret * pizzadb;
-    } else if (pizza == "gusto") {
-        pizzaosszeg = gusto * pizzameret * pizzadb;
-    } else if (pizza == "stefano") {
-        pizzaosszeg = stefano * pizzameret * pizzadb;
-    } else if (pizza == "etna") {
-        pizzaosszeg = etna * pizzameret * pizzadb;
-    } else if (pizza == "maffia") {
-        pizzaosszeg = maffia * pizzameret * pizzadb;
-    } else {
-        alert("Válassz egy pizzát!");
-    }
+    let italOsszeg = 0;
+
 
     if (pepsidb > 0) {
         pepsiosszeg = pepsi * pepsidb;
@@ -134,8 +102,87 @@ function calc() {
         liptonosszeg = 0;
     }
 
-    fizetendo = pizzaosszeg + pepsiosszeg + fantaosszeg + liptonosszeg;
+    let osszegItal = document.querySelector(".ital-osszeg");
+
+    italOsszeg = pepsiosszeg + fantaosszeg + liptonosszeg;
+
+    osszegItal.innerHTML = italOsszeg.toLocaleString('hu-HU');
+
+    //Végösszeg:
+
+    let fizetendo = pizzaOsszeg + italOsszeg;
 
     osszeg.innerHTML = fizetendo.toLocaleString('hu-HU');
+}
 
-}*/
+let neve = document.querySelector("#neve");
+let cime = document.querySelector("#cime");
+let telefon = document.querySelector("#telefon");
+
+function valid() {
+    if (neve.value == "") {
+        alert("Név megadása kötelező");
+        neve.value = "";
+        neve.focus();
+    } else if (cime.value == "") {
+        alert("Cím megadása kötelező");
+        cime.value = "";
+        cime.focus();
+    } else if (telefon.value == "") {
+        alert("Telefonszám megadása kötelező");
+        telefon.value = "";
+        telefon.focus();
+    } else {
+        order();
+    }
+}
+
+function order() {
+    if (osszeg.innerHTML == "0") {
+        alert("Válassz egy terméket!");
+    } else {
+        alert("Köszönöm a vásárlást!");
+    }
+}
+/*
+const elFactory = (type, attributes, ...children) => {
+    const el = document.createElement(type);
+
+    for (key in attributes) {
+        el.setAttribute(key, attributes[key]);
+    }
+
+    children.forEach((child) => {
+        if (typeof child === "string") {
+            el.appendChild(document.createTextNode(child));
+        } else {
+            el.appendChild(child);
+        }
+    });
+
+    return el;
+};
+
+const redDivCreator = elFactory(
+    "div", {
+        id: "reddiv",
+        class: "dobozok",
+        style: "background-color: red; color: white; padding: 5px 5px; border: solid 5px black;"
+    },
+    elFactory("span", {}, "EZ A"),
+    " PIROS DIV !"
+);
+
+
+const greenDivCreator = elFactory(
+    "div", {
+        id: "greendiv",
+        class: "dobozok",
+        style: "background-color: green; margin: 5px 5px; color: white; padding: 5px 5px; border: solid 5px black;"
+    },
+    elFactory("span", {}, "EZ A"),
+    " ZÖLD DIV !"
+);
+
+document.body.appendChild(redDivCreator);
+reddiv.appendChild(greenDivCreator);*/
