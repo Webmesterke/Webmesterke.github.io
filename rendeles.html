@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="bg-success my-2">
+<body class="bg-success my-2" onload="getDate()">
     <!--FEJLÉC-->
     <div class="container text-white text-center">
         <div class="row my-2">
@@ -65,6 +65,11 @@
         </div>
         <!--RENDELÉS-->
         <div class="container-md text-success">
+            <div class="row justify-content-left text-success text-center p-2 bg-hs">
+                <input class="form-control col-2" id="today" type="date" max="2020-12-31">
+                <div class="p-2">Ma <span id="napNeve"></span> van. Napi akció: A 32 cm-es <span id="napPizza"></span> pizzából 5% kedvezményt adunk!
+                    <span id="proba"></span></div>
+            </div>
             <div class="row justify-content-center text-white text-center">
                 <div class="col col-lg-6">
                     <form id="rendeles" action="" class="text-success">

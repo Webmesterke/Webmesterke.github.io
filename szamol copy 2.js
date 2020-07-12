@@ -1,46 +1,39 @@
 //Mai dátum
+//document.querySelector("#today").value = new Date();
+/*let today = new Date().toISOString().substr(0, 10);
+document.querySelector("#today").defaultValue = today;*/
 
 document.querySelector("#today").addEventListener("change", getDate);
 
-let napPizza = "";
-
 function getDate() {
-    datum = new Date();
+    let datum = document.querySelector("#today").valueAsDate;
 
     let nap = datum.getDay();
+
     switch (nap) {
         case 1:
             napNeve = "Hétfő";
-            napPizza = "california";
             break;
         case 2:
             napNeve = "Kedd";
-            napPizza = "capri";
             break;
         case 3:
             napNeve = "Szerda";
-            napPizza = "digomix";
             break;
         case 4:
             napNeve = "Csütörtök";
-            napPizza = "botticelli";
             break;
         case 5:
             napNeve = "Péntek";
-            napPizza = "gusto";
             break;
         case 6:
             napNeve = "Szombat";
-            napPizza = "stefano";
             break;
         case 0:
             napNeve = "Vasárnap";
-            napPizza = "etna";
             break;
     }
     document.querySelector("#napNeve").innerHTML = napNeve;
-    document.querySelector("#napPizza").innerHTML = napPizza;
-    //document.querySelector("#proba").innerHTML = document.querySelector("#today").value;
 }
 //Select
 
@@ -92,10 +85,7 @@ function calc() {
             }
         } else if (pizzaMeret == 32) {
             for (let i = 0; i < pizzaTipusok.length; i++) {
-                if (pizzaNev == pizzaTipusok[i] && napPizza == pizzaTipusok[i]) {
-                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak32[i] * 0.95 * pizzaDb;
-                    break;
-                } else {
+                if (pizzaNev == pizzaTipusok[i]) {
                     pizzaOsszeg = pizzaAr.innerHTML = pizzaArak32[i] * pizzaDb;
                     break;
                 }

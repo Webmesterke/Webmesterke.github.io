@@ -200,3 +200,7 @@ p span {
     line-height: 170px;
     margin: 50px 0;
 }
+
+#napPizza {
+    text-transform: capitalize;
+}
