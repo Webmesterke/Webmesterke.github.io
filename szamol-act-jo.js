@@ -1,6 +1,6 @@
 //Mai dátum
 
-//document.querySelector("#today").addEventListener("change", getDate);
+document.querySelector("#today").addEventListener("change", getDate);
 
 let napPizza = "";
 

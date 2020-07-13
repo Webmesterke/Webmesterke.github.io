@@ -1,6 +1,6 @@
 //Mai dátum
 
-//document.querySelector("#today").addEventListener("change", getDate);
+document.querySelector("#today").addEventListener("change", getDate);
 
 let napPizza = "";
 
@@ -92,13 +92,12 @@ function calc() {
             }
         } else if (pizzaMeret == 32) {
             for (let i = 0; i < pizzaTipusok.length; i++) {
-                if (napPizza == pizzaTipusok[i]) {
-                    pizzaOsszeg = (pizzaArak32[i] * 0.95) * pizzaDb;
+                if (pizzaNev == pizzaTipusok[i] && napPizza == pizzaTipusok[i]) {
+                    pizzaOsszeg = pizzaArak32[i] * 0.95 * pizzaDb;
                     pizzaAr.innerHTML = parseInt(pizzaOsszeg);
-                    //break;
-                } else if (pizzaNev == pizzaTipusok[i]) {
-                    pizzaOsszeg = pizzaArak32[i] * pizzaDb;
-                    pizzaAr.innerHTML = parseInt(pizzaOsszeg);
+                    break;
+                } else {
+                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak32[i] * pizzaDb;
                     break;
                 }
             }
