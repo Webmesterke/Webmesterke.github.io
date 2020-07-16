@@ -40,7 +40,6 @@ function getDate() {
     }
     document.querySelector("#napNeve").innerHTML = napNeve;
     document.querySelector("#napPizza").innerHTML = napPizza;
-    //document.querySelector("#proba").innerHTML = document.querySelector("#today").value;
 }
 //Select
 
@@ -93,7 +92,7 @@ function calc() {
         } else if (pizzaMeret == 32) {
             for (let i = 0; i < pizzaTipusok.length; i++) {
                 if (napPizza == pizzaTipusok[i]) {
-                    pizzaOsszeg = (pizzaArak32[i] * 0.95) * pizzaDb;
+                    pizzaOsszeg = (pizzaArak32[i] * 0.9) * pizzaDb;
                     pizzaAr.innerHTML = parseInt(pizzaOsszeg);
                     //break;
                 } else if (pizzaNev == pizzaTipusok[i]) {
@@ -163,6 +162,18 @@ function calc() {
     let fizetendo = pizzaOsszeg + italOsszeg;
 
     osszeg.innerHTML = fizetendo.toLocaleString('hu-HU');
+
+    let ajandek = document.querySelector(".ajandek");
+
+    if (fizetendo > 10000 && fizetendo <= 20000) {
+        ajandek.innerHTML = "Ajándékba adunk 0,5 l Lipton zöldteát!"
+    } else if (fizetendo > 20000 && fizetendo <= 30000) {
+        ajandek.innerHTML = "Ajándékba adunk 0,5 l Lipton zöldteát és 0,5 l Fantát!"
+    } else if (fizetendo > 30000) {
+        ajandek.innerHTML = "Ajándékba adunk 0,5 l Lipton zöldteát, 0,5 l Fantát és 0,5 l Pepsit!"
+    } else {
+        ajandek.innerHTML = "";
+    }
 }
 
 let neve = document.querySelector("#neve");
@@ -191,48 +202,6 @@ function order() {
     if (osszeg.innerHTML == "0") {
         alert("Válassz egy terméket!");
     } else {
-        alert("Köszönöm a vásárlást!");
+        alert("Köszönjük a vásárlást!");
     }
 }
-/*
-const elFactory = (type, attributes, ...children) => {
-    const el = document.createElement(type);
-
-    for (key in attributes) {
-        el.setAttribute(key, attributes[key]);
-    }
-
-    children.forEach((child) => {
-        if (typeof child === "string") {
-            el.appendChild(document.createTextNode(child));
-        } else {
-            el.appendChild(child);
-        }
-    });
-
-    return el;
-};
-
-const redDivCreator = elFactory(
-    "div", {
-        id: "reddiv",
-        class: "dobozok",
-        style: "background-color: red; color: white; padding: 5px 5px; border: solid 5px black;"
-    },
-    elFactory("span", {}, "EZ A"),
-    " PIROS DIV !"
-);
-
-
-const greenDivCreator = elFactory(
-    "div", {
-        id: "greendiv",
-        class: "dobozok",
-        style: "background-color: green; margin: 5px 5px; color: white; padding: 5px 5px; border: solid 5px black;"
-    },
-    elFactory("span", {}, "EZ A"),
-    " ZÖLD DIV !"
-);
-
-document.body.appendChild(redDivCreator);
-reddiv.appendChild(greenDivCreator);*/

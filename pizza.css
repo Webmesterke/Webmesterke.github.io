@@ -204,3 +204,8 @@ p span {
 #napPizza {
     text-transform: capitalize;
 }
+
+.ajandek {
+    font-size: 1.2em;
+    font-weight: bold;
+}
