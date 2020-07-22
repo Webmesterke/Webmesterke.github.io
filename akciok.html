@@ -15,7 +15,7 @@
     <title>Pizza d'Angelo</title>
 </head>
 
-<body class="bg-success my-2">
+<body class="bg-success my-2" onload="getDateAkcio()">
     <!--FEJLÉC-->
     <div class="container text-white text-center">
         <div class="row my-2">
@@ -103,6 +103,68 @@
                 </div>
             </div>
         </div>
+
+        <div class="container-sm text-success text-center">
+            <h2 class="pt-3">+ Napi akció!</h2>
+
+            <div class="row">
+                <div class="col-md p-1 m-1 bg-hs">
+                    <div class="card-body akcio-cim">
+                        <h5><span class="napNeve">Hétfő: California</span></h5>
+                        <img src="images/california.jpg" class="rounded-circle img-sh cmAkcio">
+                    </div>
+                </div>
+
+                <div class="col-md p-1 m-1 bg-hs">
+                    <div class="card-body akcio-cim">
+                        <h5><span class="napNeve">Kedd: Capri</span></h5>
+                        <img src="images/capri.jpg" class="rounded-circle img-sh cmAkcio">
+                    </div>
+                </div>
+
+                <div class="col-md p-1 m-1 bg-hs">
+                    <div class="card-body akcio-cim">
+                        <h5><span class="napNeve">Szerda: Digo-Mix</span></h5>
+                        <img src="images/digo.mix.jpg" class="rounded-circle img-sh cmAkcio">
+                    </div>
+                </div>
+
+                <div class="col-md p-1 m-1 bg-hs">
+                    <div class="card-body akcio-cim">
+                        <h5><span class="napNeve">Csütörtök: Botticelli</span></h5>
+                        <img src="images/botticelli.jpg" class="rounded-circle img-sh cmAkcio">
+                    </div>
+                </div>
+
+                <div class="col-md p-1 m-1 bg-hs">
+                    <div class="card-body akcio-cim">
+                        <h5><span class="napNeve">Péntek: Gusto</span></h5>
+                        <img src="images/gusto.jpg" class="rounded-circle img-sh cmAkcio">
+                    </div>
+                </div>
+
+                <div class="col-md p-1 m-1 bg-hs">
+                    <div class="card-body akcio-cim">
+                        <h5><span class="napNeve">Szombat: Stefano</span></h5>
+                        <img src="images/stefano.jpg" class="rounded-circle img-sh cmAkcio">
+                    </div>
+                </div>
+
+                <div class="col-md p-1 m-1 bg-hs">
+                    <div class="card-body akcio-cim">
+                        <h5><span class="napNeve">Vasárnap: Etna</span></h5>
+                        <img src="images/etna.jpg" class="rounded-circle img-sh cmAkcio">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md p-1 m-1 bg-hs">
+                    <div class="akcio"></div>
+                    <p><span>Minden nap más-más 32 cm-es pizza árából 10% kedvezményt adunk!</span></p>
+                </div>
+            </div>
+        </div>
+
 
         <div class="container-sm text-success text-center">
             <h2 class="pt-3">+ Ár akció!</h2>
@@ -193,6 +255,7 @@
             </div>
         </div>
     </div>
+    <script src="akcio.js" type="text/javascript"></script>
 
 </body>
 
