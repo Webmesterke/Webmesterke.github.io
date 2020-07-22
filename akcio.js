@@ -32,10 +32,12 @@ function getDateAkcio() {
 function napPizza() {
     let napPizzaSpan = document.querySelectorAll(".napNeve");
     let napNeveAkcio = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
+    let imgName = document.querySelectorAll("img[name = 'Akcio']");
 
     for (let i = 0; i < napPizzaSpan.length; i++) {
         if (napNeve == napNeveAkcio[i]) {
             napPizzaSpan[i].style.color = "red";
+            imgName[i].className += " rotate2";
             break;
         }
     }
