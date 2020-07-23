@@ -80,13 +80,21 @@ function calc() {
     let pizzaMeret = parseInt(document.querySelector('input[name="pizzameret"]:checked').value);
     let pizzaDb = parseInt(document.querySelector("form#rendeles input[name=pizza-db]").value);
     let pizzaOsszeg = 0;
+    let pizzaKedvezmeny = document.querySelector(".pizza-kedvezmeny");
 
     if (document.querySelector('#pizza').value != "choose") {
         document.querySelector("#calc-btn").style.display = "none";
         if (pizzaMeret == 22) {
             for (let i = 0; i < pizzaTipusok.length; i++) {
                 if (pizzaNev == pizzaTipusok[i]) {
-                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak22[i] * pizzaDb;
+                    if (pizzaDb >= 5) {
+                        pizzaOsszeg = pizzaAr.innerHTML = pizzaArak22[i] * pizzaDb;
+                        pizzaKedvezmeny.innerHTML = "-" + parseInt(pizzaArak22[i]).toLocaleString('hu-HU');
+                    } else {
+                        pizzaOsszeg = pizzaAr.innerHTML = pizzaArak22[i] * pizzaDb;
+                        pizzaKedvezmeny.innerHTML = 0;
+                        break;
+                    }
                 }
             }
         } else if (pizzaMeret == 32) {
@@ -94,7 +102,6 @@ function calc() {
                 if (napPizza == pizzaTipusok[i]) {
                     pizzaOsszeg = (pizzaArak32[i] * 0.9) * pizzaDb;
                     pizzaAr.innerHTML = parseInt(pizzaOsszeg);
-                    //break;
                 } else if (pizzaNev == pizzaTipusok[i]) {
                     pizzaOsszeg = pizzaArak32[i] * pizzaDb;
                     pizzaAr.innerHTML = parseInt(pizzaOsszeg);
@@ -104,14 +111,21 @@ function calc() {
         } else if (pizzaMeret == 42) {
             for (let i = 0; i < pizzaTipusok.length; i++) {
                 if (pizzaNev == pizzaTipusok[i]) {
-                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak42[i] * pizzaDb;
-                    break;
+                    if (pizzaDb >= 3) {
+                        pizzaOsszeg = pizzaAr.innerHTML = pizzaArak42[i] * pizzaDb;
+                        pizzaKedvezmeny.innerHTML = "-" + parseInt(pizzaArak42[i]).toLocaleString('hu-HU');
+                    } else {
+                        pizzaOsszeg = pizzaAr.innerHTML = pizzaArak42[i] * pizzaDb;
+                        pizzaKedvezmeny.innerHTML = 0;
+                        break;
+                    }
                 }
             }
         }
     } else {
         alert("Válassz egy pizzát!");
     }
+
 
     let osszegPizza = document.querySelector(".pizza-osszeg");
 
@@ -166,11 +180,14 @@ function calc() {
     let ajandek = document.querySelector(".ajandek");
 
     if (fizetendo > 10000 && fizetendo <= 20000) {
-        ajandek.innerHTML = "Ajándékba adunk 0,5 l Lipton zöldteát!"
+        ajandek.innerHTML = '+ ajándék:<br /><img src="images/zoldtea2.png" class="ital-h">'
+            //ajandek.innerHTML = "Ajándékba adunk 0,5 l Lipton zöldteát!"
     } else if (fizetendo > 20000 && fizetendo <= 30000) {
-        ajandek.innerHTML = "Ajándékba adunk 0,5 l Lipton zöldteát és 0,5 l Fantát!"
+        ajandek.innerHTML = '+ ajándék:<br /><img src="images/zoldtea2.png" class="ital-h"> <img src="images/fanta2.jpg" class="ital-h">'
+            //ajandek.innerHTML = "Ajándékba adunk 0,5 l Lipton zöldteát és 0,5 l Fantát!"
     } else if (fizetendo > 30000) {
-        ajandek.innerHTML = "Ajándékba adunk 0,5 l Lipton zöldteát, 0,5 l Fantát és 0,5 l Pepsit!"
+        ajandek.innerHTML = '+ ajándék:<br /><img src="images/zoldtea2.png" class="ital-h"> <img src="images/fanta2.jpg" class="ital-h"> <img src="images/pepsi2.jpg" class="ital-h">'
+            //ajandek.innerHTML = "Ajándékba adunk 0,5 l Lipton zöldteát, 0,5 l Fantát és 0,5 l Pepsit!"
     } else {
         ajandek.innerHTML = "";
     }

@@ -1,8 +1,6 @@
-let datum = new Date();
-
-let nap = datum.getDay();
-
 function getDateAkcio() {
+    let datum = new Date();
+    let nap = datum.getDay();
     switch (nap) {
         case 1:
             napNeve = "Hétfő";
