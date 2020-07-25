@@ -1,3 +1,4 @@
+//NO CLEAN CODE!!!
 //Mai dátum
 let napPizza = "";
 
