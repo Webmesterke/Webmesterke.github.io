@@ -73,63 +73,78 @@ function calc() {
 
     let pizzaSelect = document.querySelector("#pizza");
     let pizzaNev = pizzaSelect.options[pizzaSelect.selectedIndex].value;
-    let pizzaMeret = parseInt(document.querySelector('input[name="pizzameret"]:checked').value);
-    let pizzaDb = parseInt(document.querySelector("form#rendeles input[name=pizza-db]").value);
-    let pizzaAr = document.querySelector(".pizza-osszeg");
-    let pizzaOsszeg = 0;
+    let pizzaDb22 = parseInt(document.querySelector("form#rendeles input[name='22-db']").value);
+    let pizzaDb32 = parseInt(document.querySelector("form#rendeles input[name='32-db']").value);
+    let pizzaDb42 = parseInt(document.querySelector("form#rendeles input[name='42-db']").value);
+    let pizzaAr22 = document.querySelector("#Ar22");
+    let pizzaAr32 = document.querySelector("#Ar32");
+    let pizzaAr42 = document.querySelector("#Ar42");
+    pizzaAr22.innerHTML = "";
+    pizzaAr32.innerHTML = "";
+    pizzaAr42.innerHTML = "";
+    let pizzaOsszeg22 = 0;
+    let pizzaOsszeg32 = 0;
+    let pizzaOsszeg42 = 0;
+    let pizzaOsszeg = document.querySelector(".pizza-osszeg");
     let pizzaKedvezmeny = document.querySelector(".pizza-kedvezmeny");
     let napiKedvezmeny = document.querySelector(".napi-kedvezmeny");
     napiKedvezmeny.innerHTML = "";
     let kedvezmeny = 0;
+    let kedvezmeny22 = 0;
+    let kedvezmeny32 = 0;
+    let kedvezmeny42 = 0;
 
     if (document.querySelector('#pizza').value != "choose") {
         document.querySelector("#calc-btn").style.display = "none";
-        if (pizzaMeret == 22) {
+        if (pizzaDb22 > 0) {
             for (let i = 0; i < pizzaTipusok.length; i++) {
                 if (pizzaNev == pizzaTipusok[i]) {
-                    if (pizzaDb >= 5) {
-                        pizzaOsszeg = pizzaAr.innerHTML = pizzaArak22[i] * pizzaDb;
-                        pizzaKedvezmeny.innerHTML = kedvezmeny = pizzaArak22[i] * -1;
+                    if (pizzaDb22 >= 5) {
+                        pizzaOsszeg22 = pizzaArak22[i] * pizzaDb22;
+                        kedvezmeny22 = pizzaArak22[i] * -1;
                     } else {
-                        pizzaOsszeg = pizzaAr.innerHTML = pizzaArak22[i] * pizzaDb;
-                        pizzaKedvezmeny.innerHTML = kedvezmeny = 0;
-                        break;
+                        pizzaOsszeg22 = pizzaArak22[i] * pizzaDb22;
+                        kedvezmeny22 = 0;
+                        //break;
                     }
                 }
             }
-        } else if (pizzaMeret == 32 && pizzaDb < 4) {
+        }
+        if (pizzaDb32 > 0 && pizzaDb32 < 4) {
             for (let i = 0; i < pizzaTipusok.length; i++) {
                 if (napPizza == pizzaTipusok[i]) {
-                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak32[i] * pizzaDb * 0.9;
-                    napiKedvezmeny.innerHTML = "Napi árkedvezmény: 10%!";
-                    pizzaKedvezmeny.innerHTML = kedvezmeny = 0;
+                    pizzaOsszeg32 = pizzaArak32[i] * pizzaDb32 * 0.9;
+                    //napiKedvezmeny32 = "Napi árkedvezmény: 10%!";
+                    kedvezmeny32 = 0;
                 } else if (pizzaNev == pizzaTipusok[i]) {
-                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak32[i] * pizzaDb;
-                    pizzaKedvezmeny.innerHTML = kedvezmeny = 0;
+                    pizzaOsszeg32 = pizzaArak32[i] * pizzaDb32;
+                    kedvezmeny32 = 0;
                     break;
                 }
             }
-        } else if (pizzaMeret == 32 && pizzaDb >= 4) {
+        }
+        if (pizzaDb32 >= 4) {
             for (let i = 0; i < pizzaTipusok.length; i++) {
                 if (napPizza == pizzaTipusok[i]) {
-                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak32[i] * pizzaDb * 0.9;
-                    napiKedvezmeny.innerHTML = "Napi árkedvezmény: 10%!";
-                    pizzaKedvezmeny.innerHTML = kedvezmeny = pizzaArak32[i] * 0.9 * -1;
+                    pizzaOsszeg32 = pizzaArak32[i] * pizzaDb32 * 0.9;
+                    //napiKedvezmeny32 = "Napi árkedvezmény: 10%!";
+                    kedvezmeny32 = pizzaArak32[i] * 0.9 * -1;
                 } else if (pizzaNev == pizzaTipusok[i]) {
-                    pizzaOsszeg = pizzaAr.innerHTML = pizzaArak32[i] * pizzaDb;
-                    pizzaKedvezmeny.innerHTML = kedvezmeny = pizzaArak32[i] * -1;
+                    pizzaOsszeg32 = pizzaArak32[i] * pizzaDb32;
+                    kedvezmeny32 = pizzaArak32[i] * -1;
                     break;
                 }
             }
-        } else if (pizzaMeret == 42) {
+        }
+        if (pizzaDb42 > 0) {
             for (let i = 0; i < pizzaTipusok.length; i++) {
                 if (pizzaNev == pizzaTipusok[i]) {
-                    if (pizzaDb >= 3) {
-                        pizzaOsszeg = pizzaAr.innerHTML = pizzaArak42[i] * pizzaDb;
-                        pizzaKedvezmeny.innerHTML = kedvezmeny = pizzaArak42[i] * -1;
+                    if (pizzaDb42 >= 3) {
+                        pizzaOsszeg42 = pizzaArak42[i] * pizzaDb42;
+                        kedvezmeny42 = pizzaArak42[i] * -1;
                     } else {
-                        pizzaOsszeg = pizzaAr.innerHTML = pizzaArak42[i] * pizzaDb;
-                        pizzaKedvezmeny.innerHTML = kedvezmeny = 0;
+                        pizzaOsszeg42 = pizzaArak42[i] * pizzaDb42;
+                        kedvezmeny42 = 0;
                         break;
                     }
                 }
@@ -138,11 +153,20 @@ function calc() {
     } else {
         alert("Válassz egy pizzát!");
     }
-
+    let osszegPizza = "";
+    osszegPizza = pizzaOsszeg22 + pizzaOsszeg32 + pizzaOsszeg42;
+    pizzaOsszeg.innerHTML = osszegPizza.toLocaleString('hu-HU');
+    kedvezmeny = kedvezmeny22 + kedvezmeny32 + kedvezmeny42;
+    pizzaKedvezmeny.innerHTML = kedvezmeny.toLocaleString('hu-HU');
+    /*
     let osszegPizza = document.querySelector(".pizza-osszeg");
+    let pizzaOsszeg = 0;
+    pizzaOsszeg = pizzaOsszeg22 + pizzaOsszeg32 + pizzaOsszeg42;
     osszegPizza.innerHTML = pizzaOsszeg.toLocaleString('hu-HU');
     let osszegKedvezmeny = document.querySelector(".pizza-kedvezmeny");
-    osszegKedvezmeny.innerHTML = kedvezmeny.toLocaleString('hu-HU');
+    pizzaKedvezmeny = pizzaKedvezmeny22 + pizzaKedvezmeny32 + pizzaKedvezmeny42;
+    kedvezmeny = kedvezmeny22 + kedvezmeny32 + kedvezmeny42;
+    osszegKedvezmeny.innerHTML = kedvezmeny.toLocaleString('hu-HU');*/
 
     //Ital összeg:
     const pepsi = 800;
@@ -184,7 +208,7 @@ function calc() {
     osszegItal.innerHTML = italOsszeg.toLocaleString('hu-HU');
 
     //Végösszeg:
-    let fizetendo = pizzaOsszeg + italOsszeg + kedvezmeny;
+    let fizetendo = osszegPizza + italOsszeg + kedvezmeny;
 
     osszegTotal.innerHTML = fizetendo.toLocaleString('hu-HU');
 

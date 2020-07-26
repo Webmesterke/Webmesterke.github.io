@@ -90,44 +90,51 @@
 
                         <fieldset class="border border-success p-2 bg-hs">
                             <legend>Megrendelés adatai:</legend>
+
                             <div class="form-group">
                                 <h5>Pizzák</h5>
-                                <div class="row my-2">
-                                    <div class="col">
-                                        <select class="form-control" id="pizza">
-                                            <option selected="selected"
-                                                disabled value="choose">Válassz egy pizzatípust!</option>
-                                            <optgroup label="Pizza alapok">
-                                                <option value="paradicsomos">Paradicsomos</option>
-                                                <option value="tejfolos">Tejfölös</option>
-                                                <option value="chilis">Chilis</option>
-                                            </optgroup>
-                                            <optgroup label="Feltétek paradicsomos alaphoz">
-                                                <option value="california">California</option>
-                                                <option value="capri">Capri</option>
-                                                <option value="digomix">Digo-Mix</option>
-                                            </optgroup>
-                                            <optgroup label="Feltétek tejfölös alaphoz">
-                                                <option value="botticelli">Botticelli</option>
-                                                <option value="gusto">Gusto</option>
-                                                <option value="stefano">Stefano</option>
-                                            </optgroup>
-                                            <optgroup label="Feltétek chilis alaphoz">
-                                                <option value="etna">Etna</option>
-                                                <option value="maffia">Maffia</option>
-                                            </optgroup>
-                                        </select>
+
+
+                                <select class="form-control" id="pizza">
+                                        <option selected="selected"
+                                            disabled value="choose">Válassz egy pizzatípust!</option>
+                                        <optgroup label="Pizza alapok">
+                                            <option value="paradicsomos">Paradicsomos</option>
+                                            <option value="tejfolos">Tejfölös</option>
+                                            <option value="chilis">Chilis</option>
+                                        </optgroup>
+                                        <optgroup label="Feltétek paradicsomos alaphoz">
+                                            <option value="california">California</option>
+                                            <option value="capri">Capri</option>
+                                            <option value="digomix">Digo-Mix</option>
+                                        </optgroup>
+                                        <optgroup label="Feltétek tejfölös alaphoz">
+                                            <option value="botticelli">Botticelli</option>
+                                            <option value="gusto">Gusto</option>
+                                            <option value="stefano">Stefano</option>
+                                        </optgroup>
+                                        <optgroup label="Feltétek chilis alaphoz">
+                                            <option value="etna">Etna</option>
+                                            <option value="maffia">Maffia</option>
+                                        </optgroup>
+                                    </select>
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="22-db">22 cm-es</label>
+                                        <input type="number" name="22-db" id="22-db" min="0" max="20" class="form-control" value="0" onchange="calc()">
+                                        <small id="Ar22"></small>
                                     </div>
-                                </div>
-                                <div class="row my-2">
-                                    <div class="col-8 form-check">
-                                        <label>Válassz egy pizzaméretet!</label><br />
-                                        <label for="22"><input class="radio-gomb" type="radio" name="pizzameret" id="22" value="22" onclick="calc()" checked> 22 cm</label>
-                                        <label for="32"><input class="radio-gomb" type="radio" name="pizzameret" id="32" value="32" onclick="calc()"> 32 cm</label>
-                                        <label for="42"><input class="radio-gomb" type="radio" name="pizzameret" id="42" value="42" onclick="calc()"> 42 cm</label>
+                                    <div class="form-group col-md-4">
+                                        <label for="32-db">32 cm-es</label>
+                                        <input type="number" name="32-db" id="32-db" min="0" max="20" class="form-control" value="0" onchange="calc()">
+                                        <small id="Ar32"></small>
                                     </div>
-                                    <div class="col-4">
-                                        <input type="number" name="pizza-db" id="pizza-db" min="1" max="10" class="form-control" value="1" onchange="calc()">
+                                    <div class="form-group col-md-4">
+                                        <label for="42-db">42 cm-es</label>
+                                        <input type="number" name="42-db" id="42-db" min="0" max="20" class="form-control" value="0" onchange="calc()">
+                                        <small id="Ar42"></small>
                                     </div>
                                 </div>
                                 <div class="row my-2">
@@ -141,7 +148,7 @@
                                     Pizza részösszeg: <span class="pizza-osszeg">0</span> Ft
                                 </div>
                                 <div class="text-danger">
-                                    <span class="napi-kedvezmeny"></span>
+                                    Napi kedvezmény: <span class="napi-kedvezmeny"></span>
                                 </div>
                                 <div class="text-danger">
                                     Mennyiségi kedvezmény: <span class="pizza-kedvezmeny">0</span> Ft
