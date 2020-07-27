@@ -114,7 +114,7 @@ function calc() {
             for (let i = 0; i < pizzaTipusok.length; i++) {
                 if (napPizza == pizzaTipusok[i]) {
                     pizzaOsszeg32 = pizzaArak32[i] * pizzaDb32 * 0.9;
-                    //napiKedvezmeny32 = "Napi árkedvezmény: 10%!";
+                    napiKedvezmeny.innerHTML = "10%!";
                     kedvezmeny32 = 0;
                 } else if (pizzaNev == pizzaTipusok[i]) {
                     pizzaOsszeg32 = pizzaArak32[i] * pizzaDb32;
@@ -127,7 +127,7 @@ function calc() {
             for (let i = 0; i < pizzaTipusok.length; i++) {
                 if (napPizza == pizzaTipusok[i]) {
                     pizzaOsszeg32 = pizzaArak32[i] * pizzaDb32 * 0.9;
-                    //napiKedvezmeny32 = "Napi árkedvezmény: 10%!";
+                    napiKedvezmeny.innerHTML = "10%!";
                     kedvezmeny32 = pizzaArak32[i] * 0.9 * -1;
                 } else if (pizzaNev == pizzaTipusok[i]) {
                     pizzaOsszeg32 = pizzaArak32[i] * pizzaDb32;
